@@ -10,6 +10,7 @@
                 <tr>
                     <th>Nombre</th>
                     <th>Propietario</th>
+                    <th>Descargar</th>
                     <th>Editar</th>
                     <th>Eliminar</th></tr>
                 </thead>
@@ -18,6 +19,7 @@
                     <tr>
                         <td>{{$document->name}}</td>
                         <td>{{$document->user->name}}</td>
+                        <td><a href="{{route('downloadFile',$document->id)}}" class="btn btn-large pull-right"><i class="fa fa-download"> </i> Descargar</a></td>
                         <td>
                             <a class="btn btn-warning" href="{{route("documents.edit",[$document])}}">
                                 <i class="fa fa-edit"></i>

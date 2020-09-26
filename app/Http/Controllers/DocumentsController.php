@@ -83,4 +83,16 @@ class DocumentsController extends Controller
         return redirect()->route("documents.index");
 
     }
+
+    //==============================================
+    //Método para descargar el archivo relacionado
+    //==============================================
+    public function getDownload($id)
+    {
+        $file_url = Document::find($id)->url;
+        $file_path= storage_path('app/public/'.$file_url);
+        $headers = array('Content-Type: application/pdf');
+
+        return response()->download($file_path);
+    }
 }
